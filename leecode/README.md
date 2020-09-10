@@ -1,4 +1,0 @@
-# LeetCode - Golang
-
----
-
