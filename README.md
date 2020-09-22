@@ -4,7 +4,7 @@
 
 ### Golang
 
-[LeetCode](./leetCode/README.md)
+[LeetCode](./leetCode)
 
 [Euler Project](./projectEuler)
 
