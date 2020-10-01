@@ -1,12 +1,14 @@
 # CodePactice
 
-代码练习留档，目前主要以Golang学习为主
+算法练习留档，目前主要以Golang学习为主
 
 ### Golang
 
-[LeetCode](./leetCode)
+[LeetCode](leetCode)
 
-[Euler Project](./projectEuler)
+[Euler Project](projectEuler)
+
+[LeetCode LCP](LCP)
 
 ---
 
