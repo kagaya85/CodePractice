@@ -5,12 +5,12 @@ import (
 	"sort"
 )
 
-// SortByBits sort by bits
-type SortByBits []int
+// SortArr sort by bits
+type SortArr []int
 
-func (a SortByBits) Len() int      { return len(a) }
-func (a SortByBits) Swap(i, j int) { a[i], a[j] = a[j], a[i] }
-func (a SortByBits) Less(i, j int) bool {
+func (a SortArr) Len() int      { return len(a) }
+func (a SortArr) Swap(i, j int) { a[i], a[j] = a[j], a[i] }
+func (a SortArr) Less(i, j int) bool {
 	counti := countBit1(a[i])
 	countj := countBit1(a[j])
 
@@ -27,7 +27,7 @@ func main() {
 
 func sortByBits(arr []int) []int {
 
-	sort.Sort(SortByBits(arr))
+	sort.Sort(SortArr(arr))
 
 	return arr
 }
