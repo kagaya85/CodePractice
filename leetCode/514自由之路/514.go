@@ -7,7 +7,7 @@ func main() {
 }
 
 func findRotateSteps(ring string, key string) int {
-	const inf = math.MaxInt32
+	const inf = math.MaxInt32 / 2
 	pos := [26][]int{}
 	n, m := len(ring), len(key)
 
