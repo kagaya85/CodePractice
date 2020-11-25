@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 func main() {
 	s := "aaaabbbbcccc"
@@ -9,26 +12,27 @@ func main() {
 
 func sortString(s string) string {
 	nums := make([]int, 26)
-	ans := []byte{}
+	var builder strings.Builder
 
 	for _, c := range s {
 		nums[c-'a']++
 	}
 
-	for len(ans) != len(s) {
+	for builder.Len() != len(s) {
 		for i := 0; i < 26; i++ {
 			if nums[i] != 0 {
 				nums[i]--
-				ans = append(ans, 'a'+byte(i))
+				builder.WriteByte('a' + byte(i))
 			}
 		}
 		for i := 25; i >= 0; i-- {
 			if nums[i] != 0 {
 				nums[i]--
-				ans = append(ans, 'a'+byte(i))
+				builder.WriteByte('a' + byte(i))
+
 			}
 		}
 	}
 
-	return string(ans)
+	return builder.String()
 }
