@@ -24,22 +24,14 @@ func (h *hp) Pop() interface{} {
 	return v
 }
 
-func (h *hp) push(v int) {
-	heap.Push(h, v)
-}
-
-func (h *hp) pop() int {
-	return heap.Pop(h).(int)
-}
-
 func lastStoneWeight(stones []int) int {
 	h := &hp{stones}
 	heap.Init(h)
 
 	for h.Len() > 1 {
-		x, y := h.pop(), h.pop()
+		x, y := heap.Pop(h).(int), heap.Pop(h).(int)
 		if x > y {
-			h.push(x - y)
+			heap.Push(h, x-y)
 		}
 	}
 
