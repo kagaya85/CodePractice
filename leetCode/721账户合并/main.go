@@ -1,5 +1,7 @@
 package main
 
+import "sort"
+
 func accountsMerge(accounts [][]string) (ans [][]string) {
 	emailToIndex := map[string]int{}
 	emailToName := map[string]string{}
@@ -30,4 +32,24 @@ func accountsMerge(accounts [][]string) (ans [][]string) {
 	union := func(from, to int) {
 		ancestor[find(from)] = find(to)
 	}
+
+	for _, account := range accounts {
+		firstIndex := emailToIndex[account[1]]
+		for _, email := range account[2:] {
+			union(emailToIndex[email], firstIndex)
+		}
+	}
+
+	indexToEmails := map[int][]string{}
+	for email, index := range emailToIndex {
+		index := find(index)
+		indexToEmails[index] = append(indexToEmails[index], email)
+	}
+
+	for _, emails := range indexToEmails {
+		sort.Strings(emails)
+		account := append([]string{emailToName[emails[0]]}, emails...)
+		ans = append(ans, account)
+	}
+	return
 }
