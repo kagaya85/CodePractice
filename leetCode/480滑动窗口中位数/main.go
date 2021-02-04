@@ -45,7 +45,7 @@ func medianSlidingWindow(nums []int, k int) []float64 {
 
 	// 每次插入一个元素后，调整两个堆的元素个数
 	makeBalance := func() {
-		if small.Len() > large.size+1 { // small比large多两个
+		if small.size > large.size+1 { // small比large多两个
 			large.push(-small.pop())
 			prune(small)
 		} else if small.size < large.size { // small比large少一个
