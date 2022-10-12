@@ -48,7 +48,6 @@ func reverseList(head *ListNode) *ListNode {
 }
 
 func mergeList(L1, L2 *ListNode) (head *ListNode) {
-
 	if L1 == nil {
 		L1, L2 = L2, L1
 	}
